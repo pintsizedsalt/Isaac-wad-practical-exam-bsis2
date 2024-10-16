@@ -22,8 +22,6 @@
         </select><br>
         <label for="total_amount">Total Amount:</label>
         <input type="number" id="total_amount" name="total_amount" step="0.01" required> <br>
-        <label for="transaction_number">Transaction Number:</label>
-        <input type="text" id="transaction_number" name="transaction_number" required> <br>
 
         <button type="submit">Create Transaction</button>
     </form>
