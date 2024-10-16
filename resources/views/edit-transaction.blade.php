@@ -27,7 +27,7 @@
         <input type="number" id="total_amount" name="total_amount" step="0.01" value="{{ $transaction->total_amount }}" required><br>
         
         <label for="transaction_number">Transaction Number:</label>
-        <input type="text" id="transaction_number" name="transaction_number" value="{{ $transaction->transaction_number }}" required><br>
+        <input type="text" id="transaction_number" name="transaction_number" value="{{ $transaction->transaction_number }}" readonly><br>
         
         <button type="submit">Update Transaction</button>
     </form>
