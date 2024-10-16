@@ -25,7 +25,6 @@ class TransactionController extends Controller
             'description' => 'required|string|max:200',
             'status' => 'required|string|in:successful,declined|max:20',
             'total_amount' => 'required|numeric',
-            'transaction_number' => 'required|string|max:30'
         ]);
 
         $transaction = new Transaction();
@@ -33,10 +32,17 @@ class TransactionController extends Controller
         $transaction->description = $validated['description'];
         $transaction->status = $validated['status'];
         $transaction->total_amount = $validated['total_amount'];
-        $transaction->transaction_number = $validated['transaction_number'];
+    
+        $transaction->transaction_number = $this->generateTransactionNumber();
+    
         $transaction->save();
 
         return redirect()->route('showAllTransactions')->with('success', 'Transaction created successfully');
+    }
+
+    private function generateTransactionNumber()
+    {
+    return 'TN' . strtoupper(uniqid());
     }
 
     public function viewTransaction(Request $request)
@@ -68,7 +74,6 @@ class TransactionController extends Controller
         'description' => 'required|string|max:200',
         'status' => 'required|string|in:successful,declined|max:20',
         'total_amount' => 'required|numeric|',
-        'transaction_number' => 'required|string|max:30'
     ]);
 
     $transaction = Transaction::find($request->id);
@@ -78,7 +83,6 @@ class TransactionController extends Controller
         $transaction->description = $validated['description'];
         $transaction->status = $validated['status'];
         $transaction->total_amount = $validated['total_amount'];
-        $transaction->transaction_number = $validated['transaction_number'];
         $transaction->save();
 
         return redirect()->route('showAllTransactions')->with('success', 'Transaction updated successfully');
