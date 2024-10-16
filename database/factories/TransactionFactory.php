@@ -24,7 +24,7 @@ class TransactionFactory extends Factory
             'description' => fake()->paragraph(),
             'status' => fake()->randomElement(['successful', 'declined']),
             'total_amount' => fake()->randomFloat(2, 100, 1000),
-            'transaction_number' => fake()->unique()->numerify('TRX#######'),
+            'transaction_number' => fake()->unique()->numerify('TN#######'),
         ];
     }
 }
