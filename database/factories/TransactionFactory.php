@@ -20,11 +20,11 @@ class TransactionFactory extends Factory
     public function definition()
     {
         return [
-            'transaction_title' => $this->faker->sentence(),
-            'description' => $this->faker->paragraph(),
-            'status' => $this->faker->randomElement(['successful', 'declined']),
-            'total_amount' => $this->faker->randomFloat(2, 100, 1000),
-            'transaction_number' => $this->faker->unique()->numerify('TRX#######'),
+            'transaction_title' => fake()->sentence(),
+            'description' => fake()->paragraph(),
+            'status' => fake()->randomElement(['successful', 'declined']),
+            'total_amount' => fake()->randomFloat(2, 100, 1000),
+            'transaction_number' => fake()->unique()->numerify('TRX#######'),
         ];
     }
 }
