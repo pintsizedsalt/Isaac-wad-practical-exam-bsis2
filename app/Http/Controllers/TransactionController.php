@@ -67,7 +67,7 @@ class TransactionController extends Controller
         'transaction_title' => 'required|string|max:200',
         'description' => 'required|string|max:200',
         'status' => 'required|string|in:successful,declined|max:20',
-        'total_amount' => 'required|numeric|between:0,999999.99', // Adjust as needed
+        'total_amount' => 'required|numeric|',
         'transaction_number' => 'required|string|max:30'
     ]);
 
